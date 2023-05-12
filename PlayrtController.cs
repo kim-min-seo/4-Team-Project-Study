@@ -1,44 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayrtController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public Rigidbody playerRigidbody; // ÀÌµ¿¿¡ »ç¿ëÇÒ ¸®Áöµå¹Ùµğ ÄÄÆ÷³ÍÆ®
-    public float speed = 8f; // ÀÌµ¿ ¼Ó·Â
-
-    // Start is called before the first frame update
+    private Rigidbody playerRigidbody; // ì´ë™ì— ì‚¬ìš©í•  ë¦¬ì§€ë“œë°”ë”” ì»´í¬ë„ŒíŠ¸
+    public float speed = 8f; // ì´ë™ ì†ë ¥
     void Start()
     {
-        
+        // ê²Œì„ ì˜¤ë¸Œì íŠ¸ì—ì„œ Rigidbody ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì•„ playerRigidbodyì— í• ë‹¹
+        playerRigidbody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(Keycode.UpArrow) == true){
-            // À§ÂÊ ¹æÇâÅ° ÀÔ·ÂÀÌ °¨ÁöµÈ °æ¿ì z ¹æÇâ Èû ÁÖ±â
-            playerRigidbody.AddForce(0f, 0f, speed);
-
-        }
-        if (Input.GetKey(Keycode.DownArrow) == true)
-        {
-            // ¾Æ·¡ÂÊ ¹æÇâÅ° ÀÔ·ÂÀÌ °¨ÁöµÈ °æ¿ì -z ¹æÇâ Èû ÁÖ±â
-            playerRigidbody.AddForce(0f, 0f, -speed);
-
-        }
-        if (Input.GetKey(Keycode.RightArrow) == true)
-        {
-            // ¿À·ĞÂÊ ¹æÇâÅ° ÀÔ·ÂÀÌ °¨ÁöµÈ °æ¿ì x ¹æÇâ Èû ÁÖ±â
-            playerRigidbody.AddForce(speed, 0f, 0f);
-
-        }
-        if (Input.GetKey(Keycode.LeftArrow) == true)
-        {
-            // ¿ŞÂÊ ¹æÇâÅ° ÀÔ·ÂÀÌ °¨ÁöµÈ °æ¿ì -x ¹æÇâ Èû ÁÖ±â
-            playerRigidbody.AddForce(-speed, 0f, 0f);
-
-        }
-
-    }
+        // ìˆ˜í‰ì¶•ê³¼ ìˆ˜ì§ì¶•ì˜ ì…ë ¥ê°’ì„ ê°ì§€í•˜ì—¬ ì €ì¥
+        float xlnput = Input.GetAxis("Horizontal");
+        float zlnput = Input.GetAxis("Vertical");
+    // ì‹¤ì œ ì´ë™ ì†ë„ë¥¼ ì…ë ¥ê°’ê³¼ ì´ë™ ì†ë ¥ì„ ì‚¬ìš©í•´ ê²°ì •
+    float xSpeed = xlnput * speed;
+    float zSpeed = zlnput * speed;
+    // Vectors ì†ë„ë¥¼ (xSpeed, 0, zSpeed)ë¡œ ìƒì„±
+    Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
+    // ë¦¬ì§€ë“œë°”ë””ì˜ ì†ë„ì— newVelocity í• ë‹¹
+    playerRigidbody.velocity = newVelocity;
+}
+public void Die()
+{
+    // ìì‹ ì˜ ê²Œì„ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”
+    gameObject.SetActive(false);
+}
 }
