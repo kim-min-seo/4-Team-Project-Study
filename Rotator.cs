@@ -6,8 +6,8 @@ public class Rotator : MonoBehaviour
 {
     public float rotationSpeed = 60f;
 
-    void UpdateO
+    void Updat()
     {
         transform.Rotate(0f, rotationSpeed* Time.deltaTime, 0f);
-}
+    }
 }
