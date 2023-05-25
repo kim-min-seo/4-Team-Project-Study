@@ -1,0 +1,6 @@
+Assets> Materials 폴더에 이미지 삽입
+Inspector 창에서 Text Type을 Sprite(2D and UI) 으로 변경
+Mesh Type Full Rect 으로 변경
+Apply
+
+UI-Image 에서 Source Image에 이미지 드래그
