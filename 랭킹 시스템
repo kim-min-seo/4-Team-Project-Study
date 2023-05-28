@@ -15,12 +15,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text recordText3;
 
     private float surviveTime; // 생존 시간
-    private bool isGameover; // 게임오버 상태
-    //+
-    private float highscore1; // 1등
-    private float highscore2; // 2등 
-    private float highscore3; // 3등
-
+    private bool isGameover; // 게임오버태상태
 
     void Start()
     { // 생존 시간과 게임오버 상태 초기화
