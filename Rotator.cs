@@ -10,6 +10,11 @@ public class Rotator : MonoBehaviour
 
     void Updat()
     {
+        timer -= Time.deltaTime;
+        if (timer <= 0f && !rotationStarted)
+        {
+            rotationStarted = true;
+        }
         transform.Rotate(0f, rotationSpeed* Time.deltaTime, 0f);
     }
 }
