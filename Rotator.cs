@@ -15,6 +15,9 @@ public class Rotator : MonoBehaviour
         {
             rotationStarted = true;
         }
-        transform.Rotate(0f, rotationSpeed* Time.deltaTime, 0f);
+        if(rotationStarted)
+        {
+            transform.Rotate(0f, rotationSpeed* Time.deltaTime, 0f);
+        }
     }
 }
