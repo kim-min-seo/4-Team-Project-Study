@@ -9,7 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene"); // SampleScene 씬으로 이동
         }
         
     }
