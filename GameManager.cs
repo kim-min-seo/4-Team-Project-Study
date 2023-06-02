@@ -1,54 +1,118 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // UI °ü·Ã ¶óÀÌºê·¯¸®
-using UnityEngine.SceneManagement; // ¾À °ü¸® °ü·Ã ¶óÀÌºê·¯¸®
+using UnityEngine.UI; //UI ê´€ë ¨ ë¼ì´ë¸ŒëŸ¬ë¦¬
+using UnityEngine.SceneManagement;//ì”¬ ê´€ë¦¬ ê´€ë ¨ ë¼ì´ë¸ŒëŸ¬ë¦¬
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameoverText; // °ÔÀÓ¿À¹ö ½Ã È°¼ºÈ­ÇÒ ÅØ½ºÆ® °ÔÀÓ ¿ÀºêÁ§Æ®
-    public Text timeText; // »ýÁ¸ ½Ã°£À» Ç¥½ÃÇÒ ÅØ½ºÆ® ÄÄÆ÷³ÍÆ®
-    public Text recordText; // ÃÖ°í ±â·ÏÀ» Ç¥½ÃÇÒ ÅØ½ºÆ® ÄÄÆ÷³ÍÆ®
+    public GameObject gameoverText;//ê²Œìž„ì˜¤ë²„ ì‹œ í™œì„±í™”í•  í…ìŠ¤íŠ¸ ê²Œìž„ ì˜¤ë¸Œì íŠ¸
+    public TMP_Text timeText;//ìƒì¡´ ì‹œê°„ì„ í‘œì‹œí•  í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸
+    public TMP_Text recordText; //ìµœê³  ê¸°ë¡ì„ í‘œì‹œí•  í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸
+    public TMP_Text recordedText; //ìµœê³  ê¸°ë¡ì„ í‘œì‹œí•  í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸
+    public GameObject gameoveredText;
+    public TMP_Text BestTime1;
+    public TMP_Text BestTime2;
+    public TMP_Text BestTime3;
 
-    private float surviveTime; // »ýÁ¸ ½Ã°£
-    private bool isGameover; // °ÔÀÓ¿À¹ö »óÅÂ
-
+    private float surviveTime;//ìƒì¡´ ì‹œê°„
+    private bool isGameover;//ê²Œìž„ì˜¤ë²„ ìƒíƒœ
+    // Start is called before the first frame update
     void Start()
-    {// »ýÁ¸ ½Ã°£°ú °ÔÀÓ¿À¹ö »óÅÂ ÃÊ±âÈ­
+    {//ìƒì¡´ ì‹œê°„ê³¼ ê²Œìž„ì˜¤ë²„ ìƒíƒœ ì´ˆê¸°í™”
         surviveTime = 0;
         isGameover = false;
+        
     }
 
     // Update is called once per frame
     void Update()
-    { // °ÔÀÓ ¿À¹ö°¡ ¾Æ´Ñ µ¿¾È
+    {//ê²Œìž„ì˜¤ë²„ê°€ ì•„ë‹Œ ë™ì•ˆ
+        
         if (!isGameover)
-        {
-            // »ýÁ¸ ½Ã°£ °»½Å
+        {//ìƒì¡´ ì‹œê°„ ê°±ì‹ 
             surviveTime += Time.deltaTime;
-            // °»½ÅÇÑ »ýÁ¸ ½Ã°£À» timeText ÅØ½ºÆ® ÄÄÆ÷³ÍÆ®¸¦ ÀÌ¿ëÇØ Ç¥½Ã
+            //ê°±ì‹ í•œ ìƒì¡´ ì‹œê°„ì„ timeText í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ë¥¼ ì´ìš©í•´ í‘œì‹œ
             timeText.text = "Time: " + (int)surviveTime;
+
         }
         else
         {
-            //°ÔÀÓ¿À¹ö »óÅÂ¿¡¼­ R Å°¸¦ ´©¸¥ °æ¿ì
+            //ê²Œìž„ì˜¤ë²„ ìƒíƒœì—ì„œ Rí‚¤ë¥¼ ëˆ„ë¥¸ ê²½ìš°
             if (Input.GetKeyDown(KeyCode.R))
             {
-                // SampleScene ¾ÀÀ» ·Îµå
+                //SampleScene ì”¬ì„ ë¡œë“œ
                 SceneManager.LoadScene("SampleScene");
             }
         }
+        
     }
-
-    // ÇöÀç °ÔÀÓÀ» °ÔÀÓ¿À¹ö »óÅÂ·Î º¯°æÇÏ´Â ¸Þ¼­µå
+    //í˜„ìž¬ ê²Œìž„ì„ ê²Œìž„ì˜¤ë²„ ìƒíƒœë¡œ ë³€ê²½í•˜ëŠ” ë©”ì„œë“œ
     public void EndGame()
-    {
-        // ÇöÀç »óÅÂ¸¦ °ÔÀÓ¿À¹ö »óÅÂ·Î ÀüÈ¯
+    {//í˜„ìž¬ ìƒíƒœë¥¼ ê²Œìž„ì˜¤ë²„ ìƒíƒœë¡œ ì „í™˜
         isGameover = true;
-        // °ÔÀÓ¿À¹ö ÅØ½ºÆ® °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­
-        gameoverText.SetActive(true);
+        //ê²Œìž„ì˜¤ë²„ í…ìŠ¤íŠ¸ ê²Œìž„ ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”
+        if (surviveTime > 15)
+        {
+            gameoveredText.SetActive(true);
+            
+        }
+        else { gameoverText.SetActive(true);
+           
+        }
+        //BestTime í‚¤ë¡œ ì €ìž¥ëœ ì´ì „ê¹Œì§€ì˜ ìµœê³  ê¸°ë¡ ê°€ì ¸ì˜¤ê¸°
+        float bestTime = PlayerPrefs.GetFloat("BestTime");
 
-        //BestTime Å°·Î ÀúÀåµÈ ÀÌÀü±îÁöÀÇ ÃÖ°í ±â·Ï °¡Á®¿À±â
+        // BestTime í‚¤ë¡œ ì €ìž¥ëœ ì´ì „ê¹Œì§€ì˜ 1,2,3ë“± ê¸°ë¡ ê°€ì ¸ì˜¤ê¸°
+        float bestTime1 = PlayerPrefs.GetFloat("BestTime1"); // 1ë“±
+        float bestTime2 = PlayerPrefs.GetFloat("BestTime2");
+        float bestTime3 = PlayerPrefs.GetFloat("BestTime3");
 
+        //ì´ì „ê¹Œì§€ì˜ ìµœê³  ê¸°ë¡ë³´ë‹¤ í˜„ìž¬ ìƒì¡´ ì‹œê°„ì´ ë” í¬ë‹¤ë©´
+        if (surviveTime > bestTime)
+        {
+            //ìµœê³  ê¸°ë¡ ê°’ì„ í˜„ìž¬ ìƒì¡´ ì‹œê°„ ê°’ìœ¼ë¡œ ë³€ê²½
+            bestTime = surviveTime;
+            //ë³€ê²½ëœ ìµœê³  ê¸°ë¡ì„ BestTime í‚¤ë¡œ ì €ìž¥
+            PlayerPrefs.SetFloat("BestTime", bestTime);
+        }
+
+        // ì´ì „ê¹Œì§€ì˜ 1ë“± ê¸°ë¡ë³´ë‹¤ í˜„ìž¬ ìƒì¡´ ì‹œê°„ì´ ë” í¬ë‹¤ë©´
+        if (surviveTime > bestTime1)
+        {
+            bestTime3 = bestTime2;
+            bestTime2 = bestTime1;
+            bestTime1 = surviveTime;
+
+            PlayerPrefs.SetFloat("BestTime3", bestTime3);
+            PlayerPrefs.SetFloat("BestTime2", bestTime2);
+            PlayerPrefs.SetFloat("BestTime1", bestTime1);
+        }
+        // ì´ì „ê¹Œì§€ì˜ 2ë“± ê¸°ë¡ë³´ë‹¤ í˜„ìž¬ ìƒì¡´ ì‹œê°„ì´ ë” í¬ë‹¤ë©´
+        else if (surviveTime > bestTime2)
+        {
+            bestTime3 = bestTime2;
+            bestTime2 = surviveTime;
+
+            PlayerPrefs.SetFloat("BestTime3", bestTime3);
+            PlayerPrefs.SetFloat("BestTime2", bestTime2);
+        }
+        // ì´ì „ê¹Œì§€ì˜ 3ë“± ê¸°ë¡ë³´ë‹¤ í˜„ìž¬ ìƒì¡´ ì‹œê°„ì´ ë” í¬ë‹¤ë©´
+        else if (surviveTime > bestTime3)
+        {
+            bestTime3 = surviveTime;
+
+            PlayerPrefs.SetFloat("BestTime3", bestTime3);
+        }
+
+        // 1,2,3ë“± ê¸°ë¡ì„ recordText í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ë¥¼ ì´ìš©í•´ í‘œì‹œ
+        BestTime1.text = "Best Time1: " + (int)bestTime1;
+        BestTime2.text = "Best Time2: " + (int)bestTime2;
+        BestTime3.text = "Best Time3: " + (int)bestTime3;
+
+        //ìµœê³  ê¸°ë¡ì„ recordText í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ë¥¼ ì´ìš©í•´ í‘œì‹œ
+        if (surviveTime > 15) { recordedText.text = "Best Time: " + (int)bestTime; }
+        else { recordText.text = "Best Time: " + (int)bestTime; }
     }
 }
