@@ -6,6 +6,8 @@ public class Item : MonoBehaviour
 {
     void Start()
     {
+        //3초 뒤에 자신의 게임 오브젝트 파괴
+        Destroy(gameObject, 3f);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -15,6 +17,7 @@ public class Item : MonoBehaviour
             if (playerController != null)
             {
                 playerController.ActivateInvincibility();
+                Destroy(gameObject); // 아이템 오브젝트 삭제
             }
             
         }
