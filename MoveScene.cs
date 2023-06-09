@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // 씬 관련 라이브러리
 
 public class NewBehaviourScript : MonoBehaviour
 {
