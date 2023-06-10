@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {//게임오버가 아닌 동안
+    {//게임오버가 아닌 동안에
         
         if (!isGameover)
         {//생존 시간 갱신
