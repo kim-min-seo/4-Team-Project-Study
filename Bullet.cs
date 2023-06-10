@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         bulletRigidbody = GetComponent<Rigidbody>();
         // 리지드바디의 속도 = 앞쪽 방향 * 이동 속력
         bulletRigidbody.velocity = transform.forward * speed;
-        // 3초 뒤에 자신의 게임 오브젝트 파괴
+        // 3초 뒤에 자신의 게임 오브젝트를 파괴
         Destroy(gameObject, 3f);
     }
     // 트리거 충돌 시 자동으로 실행되는 메서드
