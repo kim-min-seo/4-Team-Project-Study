@@ -7,8 +7,10 @@ public class Item : MonoBehaviour
     public GameObjects rangeObjects;
     BoxCollider reangeCollider;
     
-    private void Awake(){
+    private void Awake()
+    {
         rangeCollider= rangerObject.GetComponent<BoxCollider>();
+    }
         
     void Start()
     {
