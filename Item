@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public GameObjects rangeObjects;
+    BoxCollider reangeCollider;
     void Start()
     {
         //3초 뒤에 자신의 게임 오브젝트 파괴
