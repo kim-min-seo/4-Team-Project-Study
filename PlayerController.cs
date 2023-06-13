@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     float zSpeed = zlnput * speed;
     // Vectors 속도를 (xSpeed, 0, zSpeed)로 생성
     Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
-    // 리지드바디의 속도에 newVelocity 할당
+    // 바디의 속도에 newVelocity 할당
     playerRigidbody.velocity = newVelocity;
 }
 public void Die()
