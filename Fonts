@@ -7,5 +7,6 @@
   Render Mode -> SDFAA
   옵션 셋팅 후 Generate Font Atlas 를 적용
   Save 를 눌러서 Assets > Text Mesh Pro >Fonts 폴더에 저장
+  폰트 크기나 색상을 고려해야 배경과 알맞게 배치
 2) 폰트 파일 누른 후 Inspector 아래쪽 Generation Setting 부분에 Atlas Population Mode 에서 Dynamic 을 선택
   Sampling Point Size 설정(60정도)
