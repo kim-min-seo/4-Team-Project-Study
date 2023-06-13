@@ -1,6 +1,6 @@
 1) Assets > Text Mesh Pro > Fonts 폴더에 넣어줌
 1-2) Window > TextMeshPro > Font Asset Creator 클릭
-  TTF 폰트 넣은 후 아래와 같이 셋팅
+  TTF 폰트 넣은 후 아래와 같이 세팅
   Source Font File -> Maplestory Bold
   Sample Point Size -> Auto Sizing
   Atlas Resolution -> 4096, 4096
