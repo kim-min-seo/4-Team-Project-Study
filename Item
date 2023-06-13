@@ -43,7 +43,7 @@ public class Item : MonoBehaviour
             if (playerController != null)
             {
                 playerController.ActivateInvincibility(); // 상대방 PlayerController 컴포넌트의 Die()메서드 실행
-                Destroy(gameObject); // 아이템 오브젝트 삭제
+                Destroy(gameObject); // 아이템 오브젝트 제거
             }
             
         }
