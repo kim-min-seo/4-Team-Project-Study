@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {//게임오버가 아닌 동안
+    {//게임오버가 아닌 동안에
         
         if (!isGameover)
         {//생존 시간 갱신
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    //현재 게임을 게임오버 상태로 변경하는 메서드
+    //현재 게임을 게임오버 상태로 변경하는 메소드
     public void EndGame()
     {//현재 상태를 게임오버 상태로 전환
         isGameover = true;
