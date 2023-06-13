@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         // 3초 뒤에 자신의 게임 오브젝트를 파괴
         Destroy(gameObject, 3f);
     }
-    // 트리거 충돌 시 자동으로 실행되는 메서드
+    // 트리거 충돌 시 자동으로 실행되는 메소드
     void OnTriggerEnter(Collider other)
     {
         // 충돌한 상대방 게임 오브젝트가 Player 태그를 가진 경우
