@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
             // 상대방으로부터 PlayerControUer 컴포넌트를 가져오는 데 성공했다면
             if (playerController != null)
             {
-                // 상대방 PlayerControUer 컴포넌트의 Die() 메서드 실행
+                // 상대방 PlayerControUer 컴포넌트의 Die() 메소드 실행
                 playerController.Die();
             }
         }
