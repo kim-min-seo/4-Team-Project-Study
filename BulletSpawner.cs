@@ -27,7 +27,7 @@ if (timeAfterSpawn >= spawnRate)
 {
         // 누적된 시간을 리셋
         timeAfterSpawn = 0f;
-        // bulletPrefab의 복제본을
+        // bulletPrefab의 복제본을 위치시킨다
         // transform.position 위치와 transform.rotation 회전0루 생성
         GameObject bullet
         = Instantiate(bulletPrefab, transform.position, transform.rotation);
